@@ -1,0 +1,618 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  background: linear-gradient(to bottom, #000 40%, #00000011 100%);
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+.btn-User {
+  position: relative; 
+  display: inline-block;
+}
+
+.btn-User img {
+  width: 40px;
+  height: 40px;
+}
+
+.btn-User img:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.btn-User::after {
+  content: "Voltar";                
+  position: absolute;
+  bottom: -30px;                 
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);    
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;          
+  transition: opacity 0.3s ease;
+  white-space: nowrap;            
+}
+
+.btn-User:hover::after {
+  opacity: 1;
+}
+
+.btn-home {
+  position: relative; 
+  display: inline-block;
+}
+
+.btn-home img {
+  width: 30px;
+  height: 30px;
+}
+
+.btn-home img:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.btn-home::after {
+  content: "Sair";               
+  position: absolute;
+  bottom: -30px;                 
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);   
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;          
+  transition: opacity 0.3s ease;
+  white-space: nowrap;           
+}
+
+.btn-home:hover::after {
+  opacity: 1;
+}
+
+/* ===== BANNER ===== */
+.banner {
+  position: relative;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin-bottom: 30px;
+  padding-top: 80px;
+}
+.banner img {
+  position: absolute;
+  width: 100%; height: 100%;
+  object-fit: cover; top: 0; left: 0;
+  z-index: -2;
+}
+.banner::before {
+  content: "";
+  position: absolute;
+  width: 100%; height: 100%;
+  top: 0; left: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: -1;
+}
+.banner h1 { font-size: 2rem; text-align: center; }
+
+/*-- ===== ABAS ===== */
+.perfil-container {
+  width: 80%;
+  margin: 0 auto 50px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transform: translateY(50px); 
+  z-index: 5;
+  position: relative;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+}
+.tab-button {
+  background: none;
+  border: none;
+  padding: 10px 60px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #555;
+  transition: 0.3s;
+}
+.tab-button.active {
+  color: #ff6600;
+  border-bottom: 2px solid #ff6600;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+.avaliacao-card {
+  background: #f8f8f8;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  position: relative;
+}
+.icone-olho {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.icone-olho:hover {
+  transform: scale(1.1);
+}
+
+.btn-download img {
+  transition: transform 0.2s ease;
+  width: 20px;
+  height: 20px;
+  margin-left: 10%;
+}
+.btn-download:hover img {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.btn-recibo img {
+  transition: transform 0.2s ease;
+  width: 25px;
+  height: 25px;
+  margin-left: 10%;
+}
+.btn-recibo:hover img {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+/* ===== POPUPS ===== */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(3px);
+}
+
+.popup-box {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  max-width: 400px;
+  width: 90%;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  animation: aparecerPopup 0.3s ease;
+}
+
+.popup-box p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.popup-box button {
+  background: #e65c00;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.popup-box button:hover {
+  background: #a74401;
+}
+
+@keyframes aparecerPopup {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== RODAPÉ ===== */
+.footer {
+  background: #000;
+  color: #ddd;
+  padding: 60px 10% 20px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  margin-top: 8%;
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  flex: 1;
+  min-width: 450px;
+}
+
+.footer-section {
+  margin-bottom: 5%;
+}
+
+.footer-section h4 {
+  color: #bebebe;
+  font-size: 16px;
+  margin-bottom: 5%;
+  font-weight: bold;
+  margin-top: 8%;
+}
+
+.footer-section p,
+.footer-section a {
+  font-size: 14px;
+  color: #8f8e8e;
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+.footer-section a:hover {
+  color: #fc9652;
+}
+
+.footer-right {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+  margin-left: 35%;
+}
+
+.footer-right h4 {
+  color: #bebebe;
+  font-size: 16px;
+  margin-bottom: 5%;
+  font-weight: bold;
+  margin-top: 8%;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #8f8e8e;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #fc9652;
+}
+
+.footer-social img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-bottom: 3%;
+}
+
+.footer-logo {
+  text-align: center;
+}
+
+.footer-logo img {
+  width: 244px;
+  height: 111px;
+}
+
+.footer-copy {
+  margin-top: 2%;
+  font-size: 15px;
+  color: #5e5e5e;
+  text-align: center;
+  width: 100%;
+  margin-left: 2%;
+}
+/* ======================================================= */
+/*                 REGRAS DE RESPONSIVIDADE               */
+/* ======================================================= */
+
+/* ---------------------------------------------------- */
+/* 1. Tablets e Desktops Menores (max-width: 992px) */
+/* ---------------------------------------------------- */
+@media (max-width: 992px) {
+  .perfil-container {
+    width: 90%; 
+    padding: 20px;
+    transform: translateY(-50px);
+  }
+  
+  .header {
+    padding: 15px 5%;
+  }
+
+  .tabs {
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 5px; 
+  }
+  .tab-button {
+    padding: 8px 15px; 
+    font-size: 13px;
+  }
+  
+  .footer-content {
+    flex-direction: column; 
+    align-items: center;
+    gap: 20px;
+  }
+  .footer-left,
+  .footer-right {
+    min-width: auto;
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+  }
+  .footer-social {
+    flex-direction: row; 
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+
+/* ---------------------------------------------------- */
+/* 2. Celulares (max-width: 600px) */
+/* ---------------------------------------------------- */
+@media (max-width: 600px) {
+
+  .header {
+    display: flex; 
+    padding: 10px 15px; 
+    height: 60px; 
+    align-items: center;
+    background: #000; 
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .btn-User img {
+    width: 30px;
+    height: 30px;
+  }
+  .btn-home img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .btn-User::after,
+  .btn-home::after {
+    display: none;
+  }
+
+  .banner {
+    height: 15vh;
+    margin-bottom: 15px;
+    margin-top: 60px;
+  }
+
+  .perfil-container {
+    width: 98%; 
+    padding: 10px; 
+    margin: 0 auto 20px;
+    transform: translateY(30px);
+    margin-bottom: 80px;
+  }
+
+  .tabs {
+    flex-wrap: wrap; 
+    justify-content: center; 
+    margin-bottom: 15px;
+    gap: 5px 2px; 
+    border-bottom: 1px solid #eee; 
+    padding-bottom: 10px;
+  }
+  .tab-button {
+    padding: 8px 10px; 
+    font-size: 11px; 
+    border-bottom: none; 
+  }
+  .tab-button.active {
+    border-bottom: 2px solid #ff6600; 
+  }
+
+  .table {
+    width: 100%;
+    font-size: 0.8em; 
+    margin-bottom: 1rem;
+  }
+  .table thead th,
+  .table tbody td {
+    padding: 0.5rem 0.3rem;
+    vertical-align: middle;
+  }
+  
+  .tab-content { 
+    overflow-x: hidden;
+  }
+  
+  #clientes.tab-content {
+    overflow-x: auto; 
+  }
+  
+  #clientes .table {
+    min-width: 500px; 
+  }
+  
+  #clientes .table th,
+  #clientes .table td {
+    display: table-cell !important; 
+  }
+
+  #servicos.tab-content {
+    overflow-x: auto; 
+  }
+  
+  #servicos .table {
+    min-width: 700px;
+  }
+  
+  #servicos .table th,
+  #servicos .table td {
+    display: table-cell !important;
+  }
+  
+  #servicos .table td:nth-child(5) button {
+    padding: 3px 6px; 
+    font-size: 0.7em;
+    margin: 2px;
+  }
+  
+  #contratos .table th:nth-child(1), #contratos .table td:nth-child(1) { display: none; } 
+  #contratos .table th:nth-child(5), #contratos .table td:nth-child(5) { display: none; } 
+
+  #pagamentos .table th:nth-child(1), #pagamentos .table td:nth-child(1) { display: none; } 
+  #pagamentos .table th:nth-child(5), #pagamentos .table td:nth-child(5) { display: none; } 
+
+
+  .avaliacao-card {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+  }
+  .avaliacao-card p {
+    margin-bottom: 5px;
+  }
+  .icone-olho {
+    right: 10px;
+    top: 10px;
+  }
+  .icone-olho img {
+    width: 18px;
+    height: 18px;
+  }
+
+  #carrossel button {
+    padding: 8px 12px;
+    font-size: 0.85em;
+    margin-right: 5px;
+    margin-bottom: 5px; 
+  }
+
+  .footer {
+    padding: 40px 5% 15px 5%;
+  }
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-left, .footer-right {
+    min-width: 100%;
+    text-align: center;
+    margin-left: 0;
+  }
+  .footer-social {
+    flex-direction: row; 
+    justify-content: center;
+  }
+  .footer-logo img {
+    width: 180px;
+    height: 80px;
+    margin-top: 20px;
+  }
+}
+
+/* ==============================
+   DESATIVA CURSOR DE DIGITAÇÃO
+   E SELEÇÃO FORA DOS CAMPOS
+   ============================== */
+
+/* 1) Global: remove seleção e caret por padrão */
+*:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+ */
+  user-select: none;         /* padrão */
+  caret-color: transparent;  /* garante que nenhum caret apareça */
+}
+
+/* 2) Exceções: permite seleção e caret nos campos reais */
+input, textarea, select, [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  caret-color: auto;
+  cursor: text;
+}
+
+/* 3) Imagens e elementos gráficos: bloqueia seleção e arraste */
+img, svg, video {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto; 
+}
+
+/* 4) Links ainda podem ser clicados e selecionados normalmente */
+a {
+  user-select: text;
+  cursor: pointer;
+}

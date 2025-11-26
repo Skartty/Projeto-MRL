@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil - MRL</title>
+  <link rel="stylesheet" href="/screens/User/Perfil/Perfil.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/screens/Acessibilidade/acessibilidade.css">
+</head>
+<body>
+
+  <!-- ===== HEADER / MENU ===== --> 
+  <header class="header">
+    <a href="/screens/User/index.html" class="btn-User">
+      <img src="/screens/User/Imagens/Icon_Voltar.png" alt="Seta para voltar para User">
+    </a>
+    
+    <a href="/screens/Home/index.html" id="btnLogout" class="btn-home">
+      <img src="/screens/User/Imagens/Icon_Sair.png" alt="Sair da conta">
+    </a>
+  </header>
+
+  <!-- ===== BANNER ===== -->
+  <section class="banner">
+    <img src="/screens/User/Imagens/Fundo_User.png" alt="Banner de fundo com as caracteristicas de tecnologia">
+  </section>
+
+  <!-- ===== CONTEÚDO COM ABAS ===== -->
+  <section class="perfil-container">    
+    <div class="tabs">
+      <button class="tab-button active" data-tab="perfil">Meu Perfil</button>
+      <button class="tab-button" data-tab="contratos">Meus Contratos</button>
+      <button class="tab-button" data-tab="pagamentos">Meus Pagamentos</button>
+      <button class="tab-button" data-tab="avaliacoes">Minhas Avaliações</button>
+    </div>
+
+    <div class="tab-content active" id="perfil">
+      <h2>Dados do Perfil</h2>
+      <form class="perfil-form" id="perfilForm">
+        <div class="form-group">
+          <label>Nome:</label>
+          <input type="text" id="perfilNome" disabled>
+        </div>
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="email" id="perfilEmail" disabled>
+        </div>
+        <div class="form-group">
+          <label>CPF/CNPJ:</label>
+          <input type="text" id="perfilCpfCnpj" disabled>
+        </div>
+        <div class="form-group">
+          <label>Telefone:</label>
+          <input type="tel" id="perfilTelefone" disabled>
+        </div>
+        <div class="form-group senha-group">
+          <label>Senha:</label>
+          <div class="senha-wrapper">
+            <input type="password" id="perfilSenha" disabled>
+            <button type="button" class="btn-toggle" id="btnToggleSenha">
+              <img src="/screens/User/Imagens/Img_Olho.png" alt="Mostrar senha">
+            </button>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-edit" id="btnEdit">Editar Informações</button>
+          <button type="button" class="btn-save" id="btnSave" style="display: none;">Salvar</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="tab-content" id="contratos">
+      <h2>Meus Contratos</h2>
+
+      <!-- Filtro -->
+      <div class="filtro-contratos">
+        <label for="filtro">Filtrar por:</label>
+        <select id="filtro">
+          <option value="alfabetica">Ordem Alfabética</option>
+          <option value="status">Status</option>
+          <option value="data">Data</option>
+        </select>
+      </div>
+
+      <!-- contratos -->
+      <div class="contratos-lista">
+        <div class="contrato-card">
+          <div class="contrato-header">
+            <h3>Desenvolvimento de Web Sites</h3>
+            <span class="status ativo">Ativo</span>
+            <span class="data">12/08/2025</span>
+            <span class="expand">
+              <img src="/screens/User/Imagens/Expandir.png" alt="Expandir Contrato">
+            </span>
+          </div>
+          <div class="contrato-detalhes">
+            <p><strong>Descrição:</strong> Criação de site institucional completo.</p>
+            <p><strong>Forma de pagamento:</strong> Cartão de crédito em 3x.</p>
+          </div>
+        </div>
+
+        <div class="contrato-card">
+          <div class="contrato-header">
+            <h3>Desenvolvimento Mobile</h3>
+            <span class="status cancelado">Cancelado</span>
+            <span class="data">12/09/2025</span>
+            <span class="expand">
+              <img src="/screens/User/Imagens/Expandir.png" alt="Expandir Contrato">
+            </span>
+          </div>
+          <div class="contrato-detalhes">
+            <p><strong>Descrição:</strong> Aplicativo Android e iOS.</p>
+            <p><strong>Forma de pagamento:</strong> Boleto bancário.</p>
+          </div>
+        </div>
+
+        <div class="contrato-card">
+          <div class="contrato-header">
+            <h3>Desenvolvimento de Micro Serviços</h3>
+            <span class="status concluido">Concluído</span>
+            <span class="data">12/07/2025</span>
+            <span class="expand">
+              <img src="/screens/User/Imagens/Expandir.png" alt="Expandir Contrato">
+            </span>
+          </div>
+          <div class="contrato-detalhes">
+            <p><strong>Descrição:</strong> API para integração com ERP.</p>
+            <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="pagamentos">
+      <h2>Meus Pagamentos</h2>
+
+      <!-- Filtro -->
+      <div class="filtro-pagamentos">
+        <label for="filtro-pag">Filtrar por:</label>
+        <select id="filtro-pag">
+          <option value="alfabetica">Ordem Alfabética</option>
+          <option value="contrato">Data do Contrato</option>
+          <option value="vencimento">Data de Vencimento</option>
+        </select>
+      </div>
+
+      <!-- pagamentos -->
+      <div class="pagamentos-lista">
+        <div class="pagamento-card">
+          <div class="pagamento-header">
+            <h3>Desenvolvimento de Web Sites</h3>
+            <span class="data-contrato">12/07/2025</span>
+            <span class="data-vencimento">12/08/2025</span>
+            <span class="expand">
+              <img src="/screens/User/Imagens/Expandir.png" alt="Expandir Pagamento">
+            </span>
+          </div>
+          <div class="pagamento-detalhes">
+            <p><strong>Descrição:</strong> Criação de site institucional completo.</p>
+            <p><strong>Forma de pagamento:</strong> Cartão de crédito em 3x.</p>
+          </div>
+        </div>
+
+        <div class="pagamento-card">
+          <div class="pagamento-header">
+            <h3>Desenvolvimento Mobile</h3>
+            <span class="data-contrato">12/07/2025</span>
+            <span class="data-vencimento">12/08/2025</span>
+            <span class="expand">
+              <img src="/screens/User/Imagens/Expandir.png" alt="Expandir Pagamento">
+            </span>
+          </div>
+          <div class="pagamento-detalhes">
+            <p><strong>Descrição:</strong> Aplicativo Android e iOS.</p>
+            <p><strong>Forma de pagamento:</strong> Boleto bancário.</p>
+          </div>
+        </div>
+
+        <div class="pagamento-card">
+          <div class="pagamento-header">
+            <h3>Desenvolvimento de Micro Serviços</h3>
+            <span class="data-contrato">12/07/2025</span>
+            <span class="data-vencimento">12/08/2025</span>
+            <span class="expand">
+              <img src="/screens/User/Imagens/Expandir.png" alt="Expandir Pagamento">
+            </span>
+          </div>
+          <div class="pagamento-detalhes">
+            <p><strong>Descrição:</strong> API para integração com ERP.</p>
+            <p><strong>Forma de pagamento:</strong> Pix à vista.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="avaliacoes">
+      <h2>Minhas Avaliações</h2>
+
+      <div class="avaliacoes-lista">
+        <div class="avaliacao-card">
+          <div class="avaliacao-header">
+            <h3>Avaliação do Serviço: Desenvolvimento Mobile</h3>
+            <span class="avaliacao-estrelas">⭐️⭐️⭐️⭐️⭐️</span>
+          </div>
+          <p><strong>Data da Avaliação:</strong> 15/09/2025</p>
+          <div class="avaliacao-comentario">
+            "Sistema rápido e com ótima usabilidade! O prazo foi cumprido perfeitamente."
+          </div>
+        </div>
+
+        <div class="avaliacao-card">
+          <div class="avaliacao-header">
+            <h3>Avaliação do Serviço: Micro Serviços</h3>
+            <span class="avaliacao-estrelas">⭐️⭐️⭐️⭐️</span>
+          </div>
+          <p><strong>Data da Avaliação:</strong> 01/08/2025</p>
+          <div class="avaliacao-comentario">
+            "A API é robusta, mas o suporte inicial demorou um pouco para responder. No geral, bom trabalho."
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer id="contato" class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <div class="footer-section">
+          <h4>Empresa</h4>
+          <p>MRL DESENVOLVIMENTO DE SOFTWARE E TECNOLOGIAS LTDA</p>
+          <p>CNPJ 50.163.155/0001-17</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Fale Conosco</h4>
+          <p><a href="mailto:miraelribeirodev@gmail.com">MIRAELDRIBEIRO@GMAIL.COM</a></p>
+          <p>Tel <a href="tel:+551997077633">19 9707-7633</a></p>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <h4>Redes Sociais</h4>
+        <div class="footer-social">
+          <a href="https://github.com/MiraelRibeiro" target="_blank" rel="noopener noreferrer">
+            <img src="/screens/User/Imagens/Icon_Git.png" alt="Link contato GitHub"> GitHub
+          </a>
+
+          <a href="https://www.instagram.com/miraelribeiro/" target="_blank" rel="noopener noreferrer">
+            <img src="/screens/User/Imagens/Icon_Insta.png" alt="Link contato Instagram"> Instagram
+          </a>
+
+          <a href="https://www.linkedin.com/in/mirael-ribeiro-16437618b/" target="_blank" rel="noopener noreferrer">
+            <img src="/screens/User/Imagens/Icon_Link.png" alt="Link contato LinkedIn"> Linkedin
+          </a>
+        </div>
+      </div>
+    </div>
+   
+    <div class="footer-logo">
+      <img src="/screens/User/Imagens/Logo_MRL.png" alt="Logo da empresa MRL">
+    </div>
+
+    <div class="footer-copy">
+      © Copyright 2025 - Todos os direitos reservados
+    </div>
+  </footer>
+
+  <script src="/screens/Acessibilidade/acessibilidade.js"></script>
+  <script type="module" src="../../../JS/PerfilCliente.js"></script>
+  <script type="module" src="../../../JS/AtualizaCliente.js"></script>
+  <script type="module" src="../../../JS/BuscaCliente.js"></script>
+  <script src="/screens/User/Perfil/scriptPerfil.js"></script>
+
+</body>
+</html>

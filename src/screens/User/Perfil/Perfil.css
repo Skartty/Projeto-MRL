@@ -1,0 +1,904 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  background: linear-gradient(to bottom, #000 40%, #00000011 100%);
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+.btn-User {
+  position: relative; 
+  display: inline-block;
+}
+
+.btn-User img {
+  width: 40px;
+  height: 40px;
+}
+
+.btn-User img:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.btn-User::after {
+  content: "Voltar";               
+  position: absolute;
+  bottom: -30px;                
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);   
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;         
+  transition: opacity 0.3s ease;
+  white-space: nowrap;            
+}
+
+.btn-User:hover::after {
+  opacity: 1;
+}
+
+.btn-home {
+  position: relative; 
+  display: inline-block;
+}
+
+.btn-home img {
+  width: 30px;
+  height: 30px;
+}
+
+.btn-home img:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.btn-home::after {
+  content: "Sair";                
+  position: absolute;
+  bottom: -30px;                 
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);    
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;          
+  transition: opacity 0.3s ease;
+  white-space: nowrap;            
+}
+
+.btn-home:hover::after {
+  opacity: 1;
+}
+
+/* ===== BANNER ===== */
+.banner {
+  position: relative;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin-bottom: 30px;
+}
+.banner img {
+  position: absolute;
+  width: 100%; height: 100%;
+  object-fit: cover; top: 0; left: 0;
+  z-index: -2;
+}
+.banner::before {
+  content: "";
+  position: absolute;
+  width: 100%; height: 100%;
+  top: 0; left: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: -1;
+}
+.banner h1 { font-size: 2rem; text-align: center; }
+
+/*-- ===== ABAS ===== */
+.perfil-container {
+  width: 80%;
+  margin: 0 auto 50px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ddd;
+}
+.tab-button {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #555;
+  transition: 0.3s;
+}
+.tab-button.active {
+  color: #ff6600;
+  border-bottom: 2px solid #ff6600;
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* perfil */
+.perfil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-group label { font-weight: bold; margin-bottom: 5px; }
+.form-group input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  color: #333;
+}
+.form-group input:not(:disabled) {
+  background: #fff;
+  border-color: #e65c00;
+}
+
+.senha-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.senha-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.senha-wrapper input {
+  width: 100%;
+  padding: 10px 40px 10px 10px; 
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  color: #333;
+}
+
+.senha-wrapper input:disabled {
+  background: #eaeaea;
+}
+
+.btn-toggle {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-toggle img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.btn-toggle img:hover {
+  opacity: 1;
+}
+
+/* editar */
+.form-actions { text-align: right; }
+.btn-edit {
+  background: #e65c00;
+  color: #fff;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 3%;
+}
+.btn-save {
+  background: #e65c00;
+  color: #fff;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 3%;
+}
+.btn-edit:hover { background: #cc5200; }
+
+/* ===== MEUS CONTRATOS ===== */
+/* Filtro */
+.filtro-contratos {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.filtro-contratos label {
+  font-weight: bold;
+}
+
+.filtro-contratos select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.contratos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contrato-card {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px 20px;
+  transition: box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.contrato-card:hover {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.contrato-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.contrato-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  margin: 0;
+}
+
+.status {
+  font-weight: bold;
+  text-align: center;
+}
+
+.status.concluido { color: #e65c00; }
+.status.cancelado { color: #cc0000; }
+.status.ativo { color: #00994d; }
+
+.data {
+  text-align: right;
+  color: #777;
+  font-size: 14px;
+  margin-right: 15%;
+}
+
+.expand img {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.contrato-detalhes {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  font-size: 14px;
+  color: #333;
+}
+
+.contrato-card.active .contrato-detalhes {
+  max-height: 150px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  margin-top: 10px;
+}
+
+
+/* ===== MEUS PAGAMENTOS ===== */
+/* Filtro */
+.filtro-pagamentos {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.filtro-pagamentos label {
+  font-weight: bold;
+}
+
+.filtro-pagamentos select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.pagamentos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pagamento-card {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px 20px;
+  transition: box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.pagamento-card:hover {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Header */
+.pagamento-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagamento-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  margin: 0;
+}
+
+.data-contrato,
+.data-vencimento {
+  text-align: right;
+  color: #777;
+  font-size: 14px;
+  margin-right: 35%;
+}
+
+.data-vencimento {
+  color: #e65c00;
+  font-weight: bold;  
+}
+
+.expand img {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.pagamento-detalhes {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  font-size: 14px;
+  color: #333;
+}
+
+.pagamento-card.active .pagamento-detalhes {
+  max-height: 150px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  margin-top: 10px;
+}
+
+/* ===== MINHAS AVALIAÇÕES ===== */
+
+.avaliacoes-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px; 
+}
+
+.avaliacao-card {
+  background: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);    
+}
+
+
+.avaliacao-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.avaliacao-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.avaliacao-estrelas {
+  font-size: 18px;
+  color: #ffcc00; 
+  font-weight: bold;
+}
+
+.avaliacao-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+}
+
+.avaliacao-card p strong {
+  color: #333;
+}
+
+.avaliacao-comentario {
+  margin-top: 10px;
+  padding-left: 15px;
+  border-left: 3px solid #e65c00; 
+  font-style: italic;
+  color: #333;
+}
+
+/* ===== POPUPS ===== */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(3px);
+}
+
+.popup-box {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  max-width: 400px;
+  width: 90%;
+  color: #333;
+  font-family: 'Montserrat', sans-serif;
+  animation: aparecerPopup 0.3s ease;
+}
+
+.popup-box p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.popup-box button {
+  background: #e65c00;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.popup-box button:hover {
+  background: #a74401;
+}
+
+@keyframes aparecerPopup {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== RODAPÉ ===== */
+.footer {
+  background: #000;
+  color: #ddd;
+  padding: 60px 10% 20px 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  margin-top: 8%;
+}
+
+.footer-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  flex: 1;
+  min-width: 450px;
+}
+
+.footer-section {
+  margin-bottom: 5%;
+}
+
+.footer-section h4 {
+  color: #bebebe;
+  font-size: 16px;
+  margin-bottom: 5%;
+  font-weight: bold;
+  margin-top: 8%;
+}
+
+.footer-section p,
+.footer-section a {
+  font-size: 14px;
+  color: #8f8e8e;
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+.footer-section a:hover {
+  color: #fc9652;
+}
+
+.footer-right {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+  margin-left: 35%;
+}
+
+.footer-right h4 {
+  color: #bebebe;
+  font-size: 16px;
+  margin-bottom: 5%;
+  font-weight: bold;
+  margin-top: 8%;
+}
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #8f8e8e;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #fc9652;
+}
+
+.footer-social img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-bottom: 3%;
+}
+
+.footer-logo {
+  text-align: center;
+}
+
+.footer-logo img {
+  width: 244px;
+  height: 111px;
+}
+
+.footer-copy {
+  margin-top: 2%;
+  font-size: 15px;
+  color: #5e5e5e;
+  text-align: center;
+  width: 100%;
+  margin-left: 2%;
+}
+
+/* ====================== */
+/* RESPONSIVIDADE */
+/* ====================== */
+
+/* ---------------------------------------------------- */
+/* 1. Tablets e Desktops Menores (max-width: 992px) */
+/* ---------------------------------------------------- */
+@media (max-width: 992px) {
+    /* HEADER */
+    .header {
+      padding: 15px 5%;
+    }
+    .btn-User img {
+      width: 35px;
+      height: 35px;
+    }
+    .btn-home img {
+      width: 25px;
+      height: 25px;
+    }
+
+    /* PERFIL CONTAINER */
+    .perfil-container {
+      width: 90%; 
+      padding: 20px;
+    }
+
+    /* ABAS */
+    .tabs {
+      justify-content: space-around; 
+      gap: 5px;
+    }
+  .tab-button {
+    font-size: 15px;
+    padding: 8px 10px;
+    }
+
+    /* MEUS CONTRATOS / PAGAMENTOS */
+
+    /* Filtro */
+    .filtro-contratos,
+    .filtro-pagamentos {
+      justify-content: flex-start; 
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+
+    /* Contratos/Pagamentos */
+    .contrato-header,
+    .pagamento-header {
+      grid-template-columns: 2fr 1fr auto; 
+    }
+
+    .contrato-header .data,
+    .pagamento-header .data-contrato {
+      display: none; 
+    }
+    
+    .data-vencimento {
+      margin-right: 0; 
+    }
+
+    .contrato-header h3,
+    .pagamento-header h3 {
+      grid-column: 1 / span 2; 
+    }
+    
+    .status {
+      text-align: right;
+    }
+    
+    .expand {
+      justify-self: end; 
+    }
+}
+
+/* ---------------------------------------------------- */
+/* 2. Celulares (max-width: 600px) */
+/* ---------------------------------------------------- */
+@media (max-width: 600px) {
+    /* HEADER */
+    .header {
+      padding: 10px 3%;
+    }
+    .btn-User img {
+      width: 30px;
+      height: 30px;
+    }
+    .btn-home img {
+      width: 25px;
+      height: 25px;
+    }
+
+    /* PERFIL CONTAINER */
+    .perfil-container {
+      width: 95%; 
+      padding: 15px;
+    }
+
+    /* ABAS */
+    .tabs {
+      flex-wrap: wrap; 
+      gap: 10px;
+    }
+    .tab-button {
+      flex-grow: 1; 
+      font-size: 14px;
+      padding: 8px 5px;
+    }
+
+    /* PERFIL FORM */
+    .form-actions {
+      text-align: center; 
+    }
+    .btn-edit, .btn-save {
+      width: 100%; 
+      padding: 12px;
+      margin-top: 10px;
+    }
+    
+    /* MEUS CONTRATOS / PAGAMENTOS */
+    
+    /* Contratos/Pagamentos */
+    .contrato-header,
+    .pagamento-header {
+      grid-template-columns: 1fr auto min-content; 
+      gap: 5px;
+    }
+
+    .contrato-header h3,
+    .pagamento-header h3 {
+      grid-column: 1 / 2; 
+      font-size: 15px;
+      align-self: flex-start;
+    }
+    
+    .status {
+      grid-column: 2 / 3; 
+      text-align: right;
+      font-size: 14px;
+      align-self: flex-start;
+    }
+
+    .data-vencimento {
+      grid-column: 2 / 3; 
+      text-align: right;
+      font-size: 14px;
+    }
+    
+    .contrato-header .expand,
+    .pagamento-header .expand {
+      grid-column: 3 / 4; 
+      grid-row: 1 / 3; 
+      align-self: center;
+      justify-self: end;
+    }
+    
+    .data {
+      display: block; 
+      grid-column: 1 / 3; 
+      text-align: left;
+      margin-top: 5px;
+      font-size: 12px;
+    }
+        
+    .data-vencimento {
+      grid-column: 2 / 3;
+      text-align: right;
+      font-size: 14px;
+    }
+
+    .pagamento-header .expand {
+      grid-row: 1 / 3; 
+      align-self: center;
+      justify-self: end; 
+    }
+
+    .contrato-header .expand {
+      grid-row: 1 / 3; 
+      align-self: center;
+      justify-self: end; 
+    }
+    
+    .contrato-detalhes p,
+    .pagamento-detalhes p {
+      font-size: 12px; 
+    }
+
+    /* RODAPÉ */
+    .footer {
+      padding: 40px 5% 15px 5%;
+    }
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .footer-left, .footer-right {
+      min-width: 100%;
+      text-align: center;
+      margin-left: 0;
+    }
+    .footer-social {
+      flex-direction: row;
+      justify-content: center;
+    }
+    .footer-logo img {
+      width: 180px;
+      height: 80px;
+      margin-top: 20px;
+    }
+}
+
+/* ==============================
+   DESATIVA CURSOR DE DIGITAÇÃO
+   E SELEÇÃO FORA DOS CAMPOS
+   ============================== */
+
+/* 1) Global: remove seleção e caret por padrão */
+*:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+ */
+  user-select: none;         /* padrão */
+  caret-color: transparent;  /* garante que nenhum caret apareça */
+}
+
+/* 2) Exceções: permite seleção e caret nos campos reais */
+input, textarea, select, [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  caret-color: auto;
+  cursor: text;
+}
+
+/* 3) Imagens e elementos gráficos: bloqueia seleção e arraste */
+img, svg, video {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto; 
+}
+
+/* 4) Links ainda podem ser clicados e selecionados normalmente */
+a {
+  user-select: text;
+  cursor: pointer;
+}

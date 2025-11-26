@@ -1,0 +1,224 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* CONTAINER */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* LOGIN */
+.login-box {
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  background: #a49e9e;
+  padding: 60px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  width: 800px; 
+  color: #fff;
+  gap: 40px; 
+}
+
+/* COLUNA FORMULÁRIO */
+.login-form {
+  flex: 1;
+}
+
+.login-form h2 {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.1);
+  color: #fff;
+}
+
+.login-form input::placeholder {
+  color: #ffffff80;
+}
+
+/* LOGIN SOCIAL */
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 20px 0 30px;
+}
+
+.social-login-face {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.social-login-gmail{
+  width: 36px;
+  height: 39px;
+  cursor: pointer;
+  margin-top: -4px;
+  transition: transform 0.3s;
+}
+
+.social-login img:hover {
+  transform: scale(1.1);
+}
+
+.btn-login {
+  width: 100%;
+  padding: 15px;
+  background: #ff6f00;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 16px;
+}
+
+.btn-login:hover {
+  background: #833400;
+}
+
+/* CADASTRO */
+.link-cadastro {
+  margin-top: 20px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.link-cadastro a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link-cadastro a:hover {
+  text-decoration: underline;
+}
+
+.login-robo img {
+  width: 250px;
+}
+
+/* ====================== */
+/* RESPONSIVIDADE */
+/* ====================== */
+
+/* tablets e desktops menores */
+@media (max-width: 900px) {
+  .login-box {
+    flex-direction: column;
+    width: 80%; 
+    padding: 40px;
+    gap: 20px; 
+  }
+
+  .login-robo img {
+    width: 180px; 
+    margin-top: 20px;
+  }
+}
+
+/* Dispositivos Mobile (Celulares) */
+@media (max-width: 550px) {
+  
+  body {
+    height: auto;
+    min-height: 100vh; 
+    padding: 40px 0; 
+    align-items: flex-start; 
+  }
+
+  .login-box {
+    width: 90%; 
+    padding: 30px 20px; 
+    margin: 0 auto;
+  }
+  
+  .login-robo {
+    display: block; 
+    text-align: center; 
+  }
+  
+  .login-robo img {
+    width: 100px; 
+    margin: 10px auto 0; 
+  }
+
+  .login-form h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  .login-form input,
+  .btn-login {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .social-login {
+    margin: 15px 0 25px;
+  }
+}
+
+
+/* ==============================
+   DESATIVA CURSOR DE DIGITAÇÃO
+   E SELEÇÃO FORA DOS CAMPOS
+   ============================== */
+
+/* 1) Global: remove seleção e caret por padrão */
+*:not(input):not(textarea):not(select):not([contenteditable="true"]) {
+  -webkit-user-select: none; /* Safari/Chrome */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+ */
+  user-select: none;         /* padrão */
+  caret-color: transparent;  /* garante que nenhum caret apareça */
+}
+
+/* 2) Exceções: permite seleção e caret nos campos reais */
+input, textarea, select, [contenteditable="true"] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  caret-color: auto;
+  cursor: text;
+}
+
+/* 3) Imagens e elementos gráficos: bloqueia seleção e arraste */
+img, svg, video {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto; 
+}
+
+/* 4) Links ainda podem ser clicados e selecionados normalmente */
+a {
+  user-select: text;
+  cursor: pointer;
+}

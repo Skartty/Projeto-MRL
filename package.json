@@ -1,0 +1,26 @@
+{
+  "name": "mrl-projeto-frontend",
+  "version": "1.0.0",
+  "description": "Projeto da faculdade - Terceiro Semestre",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "npx live-server src --port=5500",
+    "deploy": "firebase deploy --only hosting"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skartty/MRL-Projeto-Frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Skartty/MRL-Projeto-Frontend/issues"
+  },
+  "homepage": "https://github.com/Skartty/MRL-Projeto-Frontend#readme",
+  "dependencies": {
+    "firebase": "^12.3.0"
+  }
+}
